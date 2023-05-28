@@ -2,9 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     color: ${({theme})=> theme.COLORS.WHITE_100};
-
 `;
-
 export const Form = styled.form`
     padding: 15rem 3.2rem;
 
