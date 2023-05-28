@@ -29,6 +29,7 @@ export function SignUp() {
                 <label>
                     Seu nome
                     <input 
+                    type='name'
                     name='name' 
                     placeholder='Exemplo: kurumin'
                     />
@@ -37,6 +38,7 @@ export function SignUp() {
                 <label>
                     Email
                     <input 
+                    type='email'
                     name='email' 
                     placeholder='Exemplo: exemplo@exemplo.com.br'
                     />
@@ -45,6 +47,7 @@ export function SignUp() {
                 <label>
                     Email
                     <input 
+                    type='number'
                     name='password' 
                     placeholder='No mínimo 6 caracteres'
                     />
