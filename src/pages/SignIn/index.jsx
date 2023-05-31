@@ -38,7 +38,7 @@ export function SignIn() {
         <label>
             Email
             <input 
-            type='number'
+            type='password'
             name='password' 
             placeholder='No mínimo 6 caracteres'
             />

@@ -47,7 +47,7 @@ export function SignUp() {
                 <label>
                     Email
                     <input 
-                    type='number'
+                    type='password'
                     name='password' 
                     placeholder='No mínimo 6 caracteres'
                     />

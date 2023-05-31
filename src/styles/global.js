@@ -16,14 +16,22 @@ export default createGlobalStyle`
 
         -webkit-font-smoothing: antialiased;
     }
-/* 
-    :root {
-        font-size: 62.5%;
-    } */
 
     .hidden {//desktop
         display: none;
     }
 
-   
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background:white;
+    }
+
+    ::-webkit-scrollbar-thumb { 
+        border-radius: 10px;
+        background: gray;
+    }
 `;
