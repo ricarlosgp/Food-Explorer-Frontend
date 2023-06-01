@@ -194,4 +194,13 @@ export const Container = styled.section`
             }
         }
     }
+
+    @media (max-width: 320px) {
+
+        .paperList {
+
+            background: red;
+            //parei aq
+        }
+    }
 `;

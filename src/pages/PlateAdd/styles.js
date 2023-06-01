@@ -2,9 +2,31 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     color: ${({theme})=> theme.COLORS.WHITE_100};
+    position: relative;
+
+    .wrapper-header {
+        position: absolute;
+        top: 0;
+    }
+
+    .wrapper-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    @media ((min-height: 900px) and (max-height: 1280px)) {
+        .wrapper-form {
+            height: 100vh;
+            width: 100%;
+            padding: 15rem 1rem;
+        }
+    }
 `;
+
 export const Form = styled.form`
     padding: 15rem 3.2rem;
+    width: 100%;
 
     label {
         width: 100%;
@@ -56,7 +78,6 @@ export const Form = styled.form`
             border-radius: 1rem;
                 
             label{
-                    
                 justify-content: start;
                 flex-direction: row;
                 align-items: center;
@@ -114,7 +135,6 @@ export const Form = styled.form`
     }
 
     .wrapper-button {
-
         button {
             background-color: ${({theme})=> theme.COLORS.RED_1000};
             color: ${({theme})=> theme.COLORS.WHITE_100};
@@ -127,9 +147,11 @@ export const Form = styled.form`
     }
 
     @media (min-width: 800px) {
+        padding: 15rem 12rem;
+
         .wrapper-1 {
             display: flex;
-            gap: 4.6rem;
+            gap: 3.2rem;
 
             .wrapper-file {
                 width: 22.9rem;
@@ -138,14 +160,43 @@ export const Form = styled.form`
             label:nth-child(3) {
                 max-width: 20rem;
             }
+
+            >label:last-child {
+                max-width: 36.4rem;
+
+                select{
+                    width: 100%;
+                }
+            }
         }
 
         .wrapper-2 {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 3.2rem;
+
+            .ingredients {
+                margin-top: -3rem;
+                width: 100%;
+
+                >div {
+                    padding: .8rem;
+                }
+            }
             
-            label {
-                //paramos aqui
+            >label {
+                margin-top: 0;
+                max-width: 25.1rem;
+            }
+        }
+
+        .wrapper-button {
+            display: flex;
+            justify-content: end;
+
+            button {
+                width: 17.2rem;
             }
         }
     }
