@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
     * {
@@ -12,8 +12,8 @@ export default createGlobalStyle`
     }
 
     body {
-        background-color: black;
-
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
         -webkit-font-smoothing: antialiased;
     }
 
@@ -34,4 +34,4 @@ export default createGlobalStyle`
         border-radius: 10px;
         background: gray;
     }
-`;
+`

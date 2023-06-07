@@ -6,51 +6,49 @@ import { useState, useEffect } from 'react'
 import { Container } from './styles'
 
 export function Plate() {
-    const [widthScreen, setWidthScreen] = useState(); 
+  const [widthScreen, setWidthScreen] = useState()
 
-    useEffect(()=>{
-        setWidthScreen(window.innerWidth)
+  useEffect(() => {
+    setWidthScreen(window.innerWidth)
 
-        window.onresize = () => { 
-        setWidthScreen(window.innerWidth) 
-        } 
-    },[widthScreen])
+    window.onresize = () => {
+      setWidthScreen(window.innerWidth)
+    }
+  }, [widthScreen])
 
-    return(
-        <Container>
-            <div className='wrapper-heart-svg'>
-                <AiOutlineHeart />
-            </div>
+  return (
+    <Container>
+      <div className="wrapper-heart-svg">
+        <AiOutlineHeart />
+      </div>
 
-            <div className='wrapper-img'>
-                <img
-                src={plateImage}
-                />
-            </div>
+      <div className="wrapper-img">
+        <img src={plateImage} />
+      </div>
 
-            <div className='wrapper-description'>
-                <div>
-                  <h3>Spaguetti Gambe</h3>
-                  <IoIosArrowForward />
-                </div>
-                <p className={widthScreen >= 800 ? '' : 'hidden'}>Massa fresca com camarões e pesto teste teste</p>
+      <div className="wrapper-description">
+        <div>
+          <h3>Spaguetti Gambe</h3>
+          <IoIosArrowForward />
+        </div>
+        <p className={widthScreen >= 800 ? '' : 'hidden'}>
+          Massa fresca com camarões e pesto teste teste
+        </p>
 
-                <span>R$ 49,87</span>
-            </div>
+        <span>R$ 49,87</span>
+      </div>
 
-            <div className='wrapper-control'>
-                <div className='wrapper-buttons'>
-                    <CgBorderStyleSolid />
-                    <span>01</span>
-                    <AiOutlinePlus />
-                </div>
+      <div className="wrapper-control">
+        <div className="wrapper-buttons">
+          <CgBorderStyleSolid />
+          <span>01</span>
+          <AiOutlinePlus />
+        </div>
 
-                <div className='wrapper-button'>
-                    <button>
-                        incluir
-                    </button>
-                </div>
-            </div>
-        </Container>
-    )
+        <div className="wrapper-button">
+          <button>incluir</button>
+        </div>
+      </div>
+    </Container>
+  )
 }

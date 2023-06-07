@@ -1,10 +1,9 @@
-import {Container} from './styles'
+import { Container } from './styles'
 
-export function Button({title}) {
-
-    return(
-        <Container>
-            <span>{title}</span>
-        </Container>
-    )
+export function Button({ title }) {
+  return (
+    <Container>
+      <span>{title}</span>
+    </Container>
+  )
 }

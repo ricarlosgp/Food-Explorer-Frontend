@@ -5,7 +5,7 @@ import { Footer } from '../../components/Footer'
 import { Container, Form } from './styles'
 import { Ingredient } from '../../components/Ingredient'
 
-export function PlateAdd() {
+export function PlateEdit() {
   return (
     <Container>
       <div className="wrapper-header">
@@ -19,7 +19,7 @@ export function PlateAdd() {
               <IoIosArrowBack size={18} />
               <span>voltar</span>
             </div>
-            <h1>Novo prato</h1>
+            <h1>Editar prato</h1>
           </div>
 
           <div className="wrapper-1">
@@ -28,7 +28,7 @@ export function PlateAdd() {
               <div className="wrapper-file">
                 <label>
                   <MdOutlineFileUpload />
-                  selecione imagem
+                  selecione imagem para alterá-lo
                   <input type="file" />
                 </label>
               </div>
@@ -61,19 +61,19 @@ export function PlateAdd() {
 
             <label>
               Preço
-              <input placeholder="R$ 00,00" type="number" />
+              <input placeholder="R$ 40,00" type="number" />
             </label>
           </div>
 
           <div className="wrapper-3">
             <label>
               Descrição
-              <textarea placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"></textarea>
+              <textarea placeholder="A Salada César é uma opção refrescante para o verão."></textarea>
             </label>
           </div>
 
           <div className="wrapper-button">
-            <button type="submit">Salvar prato</button>
+            <button type="submit">Salvar alterações</button>
           </div>
         </Form>
       </div>
