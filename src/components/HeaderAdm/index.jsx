@@ -3,13 +3,12 @@ import menu from '../../assets/menu.svg'
 import closeMenu from '../../assets/CloseMenu.svg'
 import searchIcon from '../../assets/searchIcon.svg'
 import logOut from '../../assets/logOut.svg'
-import paperList from '../../assets/paperList.svg'
+// import paperList from '../../assets/paperList.svg'
 import { Container } from './styles'
 
-import { useState, useEffect } from 'react' // inicio desktop
-// hooks react
-export function Header() {
-  // desktop   w580 h48
+import { useState, useEffect } from 'react'
+
+export function HeaderAdm() {
   const [widthScreen, setWidthScreen] = useState()
 
   useEffect(() => {
@@ -17,18 +16,8 @@ export function Header() {
 
     window.onresize = () => {
       setWidthScreen(window.innerWidth)
-
-      // if(widthScreen){
-      //   if(widthScreen >= 800){
-      //     setCheckMenuMobile(true)
-      //   }else{
-      //     setCheckMenuMobile(false)
-      //   }
-      // }
     }
   }, [widthScreen])
-
-  // fim desktop
 
   const [menuCheckbox, setMenuCheckbox] = useState(false)
 
@@ -44,7 +33,6 @@ export function Header() {
     <Container>
       <div className="wrapper">
         <div className={widthScreen >= 800 ? 'hidden' : 'menuCheckbox'}>
-          {/* desktop */}
           <input type="checkbox" onClick={() => handleMenu()} />
 
           {menuCheckbox === false ? (
@@ -57,8 +45,12 @@ export function Header() {
           )}
         </div>
 
-        <img className='logoImg' src={logoHeader} alt="logo food explorer" />
+        <div className='logoAdm'>
+          <img src={logoHeader} alt="logo food explorer" />
+          <span>admin</span>
+        </div>
 
+            {/* sidebar */}
         <div className="wrapper-container">
           <div
             className={
@@ -75,9 +67,8 @@ export function Header() {
           </div>
         </div>
 
-        <button className={widthScreen >= 800 ? 'wrapper-button' : 'hidden'}>
-          <img src={paperList} alt="List of orders" />
-          <span>pedidos (0)</span>
+        <button className={widthScreen >= 800 ?'wrapper-button' : 'hidden'}>
+          <span>novo prato</span>
         </button>
 
         <img
@@ -87,14 +78,6 @@ export function Header() {
           src={logOut}
           alt="icon log out"
         />
-
-        <div className={widthScreen >= 800 ? 'hidden' : 'paperList'}>
-          <img src={paperList} alt="List of orders" />
-
-          <div className="length">
-            <span>0</span>
-          </div>
-        </div>
       </div>
 
       <div

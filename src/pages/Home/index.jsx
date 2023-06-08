@@ -1,5 +1,6 @@
 import imgHome from '../../assets/imgHome.svg'
 import { Header } from '../../components/Header'
+import { HeaderAdm } from '../../components/HeaderAdm'
 import { Footer } from '../../components/Footer'
 import { CarouselControls } from '../../components/CarouselControls'
 import { Plate } from '../../components/Plate'
@@ -9,7 +10,7 @@ import { Container, SectionSabores, Main} from './styles'
 export function Home() {
   return (
     <Container>
-      <Header />
+      <HeaderAdm />
 
       <Main>
         <SectionSabores>

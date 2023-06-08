@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  color: ${({ theme }) => theme.COLORS.WHITE_100};
+  color: white;
+
+  padding: 28px;
 
   height: 114px;
   width: 100%;
-
-  padding: 0 3rem;
 
   display: flex;
   align-items: center;
@@ -16,32 +16,25 @@ export const Container = styled.section`
 
   background: ${({ theme }) => theme.COLORS.BACKGROUND_500};
 
-  .paperList {
-    position: relative;
-
-    .length {
-      background: ${({ theme }) => theme.COLORS.RED_900};
-      position: absolute;
-      top: -4px;
-      right: -8px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-
-      text-align: center;
-    }
-  }
-
   .wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 30px;
     width: 100%;
 
-    .logoImg {
-      width: 18rem;
+    .logoAdm {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+
+      span {
+        font-size: 1.2rem;
+        font-weight: 400;
+
+        color: ${({ theme }) => theme.COLORS.PRICE_$};
+      }
     }
 
     .menuCheckbox {
@@ -172,6 +165,17 @@ export const Container = styled.section`
     .wrapper {
       width: 100%;
 
+      .logoAdm {
+        width: 20rem;
+        flex-direction: column;
+        align-items: end;
+
+      span {
+          margin-right: 1.6rem;
+          color: ${({ theme }) => theme.COLORS.PRICE_$};
+        }
+      }
+
       .wrapper-container {
         position: static;
 
@@ -204,12 +208,6 @@ export const Container = styled.section`
 
   @media (max-width: 320px) {
     padding: 0;
-
-    .paperList {
-      .length {
-        right: -2px;
-      }
-    }
   }
 
   @media (min-height: 1280px) {
