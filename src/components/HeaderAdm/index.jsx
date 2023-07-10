@@ -4,12 +4,20 @@ import closeMenu from '../../assets/CloseMenu.svg'
 import searchIcon from '../../assets/searchIcon.svg'
 import logOut from '../../assets/logOut.svg'
 // import paperList from '../../assets/paperList.svg'
+import {useAuth} from '../../hooks/auth';
+import {useNavigate} from 'react-router-dom'
+import { api } from '../../services/api'
 import { Container } from './styles'
 
 import { useState, useEffect } from 'react'
 
-export function HeaderAdm() {
+export function HeaderAdm({setPlate=()=>{}, plate}) {
+  const [search, setSearch] = useState('')
+
   const [widthScreen, setWidthScreen] = useState()
+
+  const navigate = useNavigate();
+  const {signOut} = useAuth();
 
   useEffect(() => {
     setWidthScreen(window.innerWidth)
@@ -29,6 +37,33 @@ export function HeaderAdm() {
     }
   }
 
+  //==================================
+  
+  useEffect(()=>{
+    async function fetchPlate(){
+        const response = await api.get(`/plates?title=${search}`);
+        setPlate(response.data);
+    }
+    fetchPlate();
+  },[search, plate]);
+
+
+  //==================================
+
+  function handleLogout() {
+    navigate('/')
+    signOut()
+  }
+
+  function handleAddPlate() {
+    navigate('/PlateAdd')
+  }
+
+  function handleBackHome(){
+    return navigate("/");
+  };
+
+
   return (
     <Container>
       <div className="wrapper">
@@ -45,7 +80,7 @@ export function HeaderAdm() {
           )}
         </div>
 
-        <div className='logoAdm'>
+        <div onClick={handleBackHome} className='logoAdm'>
           <img src={logoHeader} alt="logo food explorer" />
           <span>admin</span>
         </div>
@@ -63,6 +98,7 @@ export function HeaderAdm() {
             <input
               type="text"
               placeholder="Busque por pratos ou ingredientes"
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
@@ -89,7 +125,8 @@ export function HeaderAdm() {
 
         <nav>
           <ul>
-            <li>Sair</li>
+            <li><button onClick={handleLogout}>Sair</button></li>
+            <li><button onClick={handleAddPlate}>Novo prato</button></li>
           </ul>
         </nav>
       </div>

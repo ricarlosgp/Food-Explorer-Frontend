@@ -1,10 +1,20 @@
 import logoHeader from '../../assets/logoHeader.svg'
 import { Button } from '../../components/Button'
 import { useState, useEffect } from 'react'
+import { NavLink } from "react-router-dom";
+import { useAuth} from '../../hooks/auth'
 import { Container } from './styles'
 
 export function SignIn() {
   const [widthScreen, setWidthScreen] = useState()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const { signIn } = useAuth()
+
+  function handleLogin() {
+    signIn({email, password})
+  }
 
   useEffect(() => {
     setWidthScreen(window.innerWidth)
@@ -29,21 +39,23 @@ export function SignIn() {
             type="email"
             name="email"
             placeholder="Exemplo: exemplo@exemplo.com.br"
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
 
         <label>
-          Email
+          Password
           <input
             type="password"
             name="password"
             placeholder="No mínimo 6 caracteres"
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
 
-        <Button title="Entrar" />
+        <button onClick={handleLogin}>Entrar</button>
 
-        <span>Criar uma conta</span>
+        <NavLink to="/SignUp">Criar uma conta</NavLink>
       </div>
     </Container>
   )

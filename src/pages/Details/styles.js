@@ -23,11 +23,21 @@ export const Container = styled.section`
       display: flex;
       align-items: center;
       gap: 5px;
+
+      cursor: pointer;
     }
 
-    img {
+    .imgWrapper {
       max-width: 250px;
+      max-height: 250px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 2rem;
+      }
     }
+
   }
 
   .wrapper-description {

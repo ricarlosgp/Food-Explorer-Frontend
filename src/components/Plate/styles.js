@@ -8,22 +8,34 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.COLORS.WHITE_900};
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
 
+  a, svg {
+    text-decoration: none;
+    color: ${({ theme }) => theme.COLORS.WHITE_900};
+  }
+
   position: relative;
-  .wrapper-heart-svg {
+  .wrapper-heartOrPencil-svg {
     position: absolute;
     top: 1rem;
     right: 1rem;
 
     font-size: 3.4rem;
+
+    button {
+      background: none;
+      border: none;
+    }
   }
 
   .wrapper-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 10rem;
+    width: 10rem;
+
+    margin: 0 auto;
 
     img {
-      width: 8.8rem;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -96,12 +108,6 @@ export const Container = styled.div`
   @media (min-width: 800px) {
     width: 30.4rem;
     height: 46.2rem;
-
-    .wrapper-img {
-      img {
-        width: 17.6rem;
-      }
-    }
 
     .wrapper-description {
       > div {

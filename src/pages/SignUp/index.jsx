@@ -1,10 +1,18 @@
 import { Button } from '../../components/Button'
 import logoHeader from '../../assets/logoHeader.svg'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { NavLink } from "react-router-dom"
+import { api} from '../../services/api'
 import { Container } from './styles'
 
 export function SignUp() {
   const [widthScreen, setWidthScreen] = useState()
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     setWidthScreen(window.innerWidth)
@@ -13,6 +21,25 @@ export function SignUp() {
       setWidthScreen(window.innerWidth)
     }
   }, [widthScreen])
+
+  async function handleCreateUser() {
+    if(!name || !email || !password){
+      return alert("Preencha todos os campos!");
+    }
+
+    await api.post("/users", {name, email, password})
+    .then(()=>{
+        alert("Usuário cadastrado com sucesso!");
+        navigate('/')
+    })
+    .catch(error =>{
+        if(error.response){
+            alert(error.response.data.message);
+        }else{
+            alert("Não foi possível cadastrar.");
+        }
+    })
+  }
 
   return (
     <Container>
@@ -25,7 +52,12 @@ export function SignUp() {
 
         <label>
           Seu nome
-          <input type="name" name="name" placeholder="Exemplo: kurumin" />
+          <input 
+          type="name" 
+          name="name" 
+          placeholder="Exemplo: kurumin" 
+          onChange={(e) => setName(e.target.value)} 
+          />
         </label>
 
         <label>
@@ -34,21 +66,23 @@ export function SignUp() {
             type="email"
             name="email"
             placeholder="Exemplo: exemplo@exemplo.com.br"
+            onChange={(e) => setEmail(e.target.value)} 
           />
         </label>
 
         <label>
-          Email
+          Password
           <input
             type="password"
             name="password"
             placeholder="No mínimo 6 caracteres"
+            onChange={(e) => setPassword(e.target.value)} 
           />
         </label>
 
-        <Button title="Criar conta" />
+        <button onClick={handleCreateUser}>Criar conta</button>
 
-        <span>Já tenho uma conta</span>
+        <NavLink to="/">Já tenho uma conta</NavLink>
       </div>
     </Container>
   )

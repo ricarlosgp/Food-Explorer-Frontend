@@ -153,7 +153,13 @@ export const Container = styled.section`
         flex-direction: column;
         gap: 15px;
 
+      }
+      
+      ul li button {
         font-size: 2rem;
+        background: none;
+        border: none;
+        color:  ${({ theme }) => theme.COLORS.WHITE_100};
       }
     }
   }

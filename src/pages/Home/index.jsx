@@ -4,13 +4,19 @@ import { HeaderAdm } from '../../components/HeaderAdm'
 import { Footer } from '../../components/Footer'
 import { CarouselControls } from '../../components/CarouselControls'
 import { Plate } from '../../components/Plate'
+import {  useState } from 'react'
 
 import { Container, SectionSabores, Main} from './styles'
 
 export function Home() {
+  const [plate, setPlate] = useState([])
+  //console.log(plate)
+
+  const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
+
   return (
     <Container>
-      <HeaderAdm />
+      {user.admin === 1 ? <HeaderAdm plate={plate} setPlate={setPlate} /> : <Header />}
 
       <Main>
         <SectionSabores>
@@ -28,33 +34,13 @@ export function Home() {
 
         <h2>Refeições</h2>
         <CarouselControls>
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
+          {plate && plate.map((plate) => {
+            return(
+              <Plate plate={plate} />
+            )
+          })}
         </CarouselControls>
 
-        <h2>Bebidas</h2>
-        <CarouselControls>
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-        </CarouselControls>
-
-        <h2>Sobremesas</h2>
-        <CarouselControls>
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-          <Plate />
-        </CarouselControls>
       </Main>
 
       <Footer />

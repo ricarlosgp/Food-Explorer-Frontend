@@ -125,6 +125,7 @@ export const Form = styled.form`
   .wrapper-3 {
     textarea {
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
       padding: 1.4rem 1.6rem;
 
       resize: none;

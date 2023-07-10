@@ -4,6 +4,8 @@ import closeMenu from '../../assets/CloseMenu.svg'
 import searchIcon from '../../assets/searchIcon.svg'
 import logOut from '../../assets/logOut.svg'
 import paperList from '../../assets/paperList.svg'
+import {useAuth} from '../../hooks/auth';
+import {useNavigate} from 'react-router-dom'
 import { Container } from './styles'
 
 import { useState, useEffect } from 'react' // inicio desktop
@@ -11,6 +13,8 @@ import { useState, useEffect } from 'react' // inicio desktop
 export function Header() {
   // desktop   w580 h48
   const [widthScreen, setWidthScreen] = useState()
+  const navigate = useNavigate();
+  const {signOut} = useAuth();
 
   useEffect(() => {
     setWidthScreen(window.innerWidth)
@@ -38,6 +42,11 @@ export function Header() {
     } else {
       setMenuCheckbox(false)
     }
+  }
+
+  function handleLogout() {
+    navigate('/')
+    signOut()
   }
 
   return (
@@ -106,7 +115,7 @@ export function Header() {
 
         <nav>
           <ul>
-            <li>Sair</li>
+            <li><button onClick={handleLogout}>Sair</button></li>
           </ul>
         </nav>
       </div>

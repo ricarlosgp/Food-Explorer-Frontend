@@ -1,45 +1,72 @@
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-
+import { HeaderAdm } from '../../components/HeaderAdm'
 import { IoIosArrowBack } from 'react-icons/io'
-
+import {useParams, useNavigate} from 'react-router-dom';
+import {useState, useEffect} from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { CgBorderStyleSolid } from 'react-icons/cg'
-import SaladaRavanello from '../../assets/plates/saladaRavanello.svg'
+import { api } from '../../services/api'
 
 import { Container } from './styles'
 
 export function Details() {
+  const [plate, setPlate] = useState([])
+  const [ingredients, setIngredients]=  useState([])
+  
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
+
+  useEffect(()=>{
+    async function fetchPlate(){
+        const response = await api.get(`/plates/${params.id}`);
+        setPlate(response.data[0])
+        setIngredients(response.data[1])
+    }
+    fetchPlate();
+  });
+
+  function handleBack() {
+    navigate('/')
+  }
+
+  console.log(ingredients)
+
   return (
     <Container>
-      <Header />
+      {user.admin === 1 ? <HeaderAdm /> : <Header />}
 
       <div className="wrapper-1">
         <div className="wrapper-img">
-          <div className="back">
+          <div onClick={handleBack} className="back">
             <IoIosArrowBack />
             <span>voltar</span>
           </div>
-          <img src={SaladaRavanello} alt="Salada Ravanello" />
+          <div className='imgWrapper'>
+            <img src={`${api.defaults.baseURL}/files/${plate.imagem}`} alt='' />
+          </div>
         </div>
 
         <div className="wrapper-description">
-          <h1>Salada Ravanello</h1>
+          <h1>{plate.title}</h1>
 
           <div className="text">
-            <p>
-              Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.
-              O pão naan dá um toque especial.
-            </p>
+            <p>{plate.description}</p>
           </div>
 
           <div className="wrapper-tags">
+            
             <ul>
-              <li>alface</li>
-              <li>cebola</li>
-              <li>cebola</li>
-              <li>cebola</li>
+              {ingredients && ingredients.map(ingredient => {
+                return(
+                  <li key={ingredient.id}>{ingredient.name}</li>
+                )
+              })
+              }
             </ul>
+
           </div>
 
           <div className="wrapper-control">
@@ -48,7 +75,7 @@ export function Details() {
             <AiOutlinePlus />
 
             <div className="wrapper-button">
-              <button>incluir R$ 25,00</button>
+              <button>incluir R$ {plate.price}</button>
             </div>
           </div>
         </div>

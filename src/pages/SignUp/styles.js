@@ -31,6 +31,7 @@ export const Container = styled.section`
 
       input {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_100};
+        color: ${({ theme }) => theme.COLORS.WHITE_100};
 
         border: none;
         height: 48px;

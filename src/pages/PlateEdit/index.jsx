@@ -4,8 +4,18 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Container, Form } from './styles'
 import { Ingredient } from '../../components/Ingredient'
+import { useEffect } from 'react'
 
 export function PlateEdit() {
+
+  useEffect(()=>{
+    async function fetchPlate(){
+        const response = await api.get(`/plates/}`);
+        setPlate(response.data);
+    }
+    fetchPlate();
+  },[]);
+
   return (
     <Container>
       <div className="wrapper-header">
