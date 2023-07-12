@@ -116,7 +116,7 @@ export function PlateAdd() {
           <div className="wrapper-2">
             <div className="ingredients">
             <Ingredient 
-            isNew 
+            isnew 
             placeholder="ingrediente" 
             onChange={e =>setNewIngredients(e.target.value)}
             value={newIngredient}

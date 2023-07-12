@@ -32,8 +32,6 @@ export function Details() {
     navigate('/')
   }
 
-  console.log(ingredients)
-
   return (
     <Container>
       {user.admin === 1 ? <HeaderAdm /> : <Header />}

@@ -6,19 +6,17 @@ export const Container = styled.div`
   align-items: center;
 
   height: 30px;
-  max-width: ${({ isNew }) => (isNew ? '150px' : '120px')};
+  max-width: ${({ isnew }) => (isnew ? '150px' : '120px')};
 
   color: ${({ theme }) => theme.COLORS.WHITE_900};
 
-  background-color: ${({ theme, isNew }) =>
-    isNew ? 'none' : `${theme.COLORS.BACKGROUND_INGREDIENT}`};
-  background-color: ${({ theme, shadow }) =>
-    shadow ? `${theme.COLORS.RED_500}` : 'none'};
+  background-color: ${({ theme, isnew }) =>
+    isnew ? 'none' : `${theme.COLORS.BACKGROUND_INGREDIENT}`};
 
   padding-right: 16px;
   border-radius: 8px;
-  border: ${({ theme, isNew }) =>
-    isNew ? `1px dashed ${theme.COLORS.WHITE_900}` : 'none'};
+  border: ${({ theme, isnew }) =>
+    isnew ? `1px dashed ${theme.COLORS.WHITE_900}` : 'none'};
 
   > button {
     border: none;
@@ -32,7 +30,7 @@ export const Container = styled.div`
   }
   > input {
     height: 30px;
-    min-width: ${({ isNew }) => (isNew ? '120px' : '100%')};
+    min-width: ${({ isnew }) => (isnew ? '120px' : '100%')};
 
     padding: 12px;
 
