@@ -41,7 +41,7 @@ export function PlateAdd() {
 
   async function handleAddPlate(e){
 
-    if(!imagem || !name || !category || !ingredients || !description){
+    if(!imagem || !name || !category || ingredients.length === 0 || !description){
         e.preventDefault();
         alert("Existe campo vazio.")
     }else{
@@ -60,7 +60,6 @@ export function PlateAdd() {
     
         alert("Prato adicionado com sucesso.");
         handleBackHome();
-        console.log(fileUpload)
         await api.post("/plates", fileUpload);
     }          
 };
@@ -115,30 +114,25 @@ export function PlateAdd() {
 
           <div className="wrapper-2">
             <div className="ingredients">
-            <Ingredient 
-            isnew 
-            placeholder="ingrediente" 
-            onChange={e =>setNewIngredients(e.target.value)}
-            value={newIngredient}
-            onClick={handleAddIngredient}
-            />
-                                    
-            {
-                ingredients.map((ingredient, index)=>(
-                    <Ingredient 
-                    key={String(index)}
-                    value={ingredient}
-                    onClick={()=> handleRemoveIngredient(ingredient)}
-                    />
-                ))
-            }
-
-              {/* <label htmlFor="ingredients">Ingredientes</label>
-
               <div>
-                <Ingredient isNew placeholder="ingrediente" />
-                <Ingredient placeholder="ingrediente" value="testefrfr" />
-              </div> */}
+              <Ingredient 
+              isnew 
+              placeholder="ingrediente" 
+              onChange={e =>setNewIngredients(e.target.value)}
+              value={newIngredient}
+              onClick={handleAddIngredient}
+              />
+                                      
+              {
+                  ingredients.map((ingredient, index)=>(
+                      <Ingredient 
+                      key={String(index)}
+                      value={ingredient}
+                      onClick={()=> handleRemoveIngredient(ingredient)}
+                      />
+                  ))
+              }
+              </div>
             </div>
 
             <label>

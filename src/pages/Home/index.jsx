@@ -6,11 +6,11 @@ import { CarouselControls } from '../../components/CarouselControls'
 import { Plate } from '../../components/Plate'
 import {  useState } from 'react'
 
-import { Container, SectionSabores, Main} from './styles'
+import { Container, SectionSabores, Main } from './styles'
 
 export function Home() {
   const [plate, setPlate] = useState([])
-  //console.log(plate)
+  // console.log(plate)
 
   const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
 

@@ -10,14 +10,15 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { api } from '../../services/api'
 
 export function PlateEdit() {
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
   const [imagem, setImagem] = useState("");
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
   const [newIngredient, setNewIngredients] = useState([]);
+
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
 
   const params = useParams();
   const navigate = useNavigate()
@@ -32,8 +33,9 @@ export function PlateEdit() {
     if(!newIngredient){
         return
     }else{
-        setIngredients(prevState => [...prevState, newIngredient]);
-        setNewIngredients("");
+      
+      setIngredients(prevState => [...prevState, newIngredient]);
+      setNewIngredients("");
     };
   }
     
@@ -63,13 +65,14 @@ export function PlateEdit() {
   useEffect(()=>{
     async function getIngredients(){
         const response = await api.get(`/ingredients/${params.id}`);
-        setIngredients(response.data)
+        console.log(response.data)
+        setIngredients(response.data.map(ingredient => ingredient.name))
     }
     getIngredients();
   },[]);
 
   async function updatePlate(e){
-    if(!imagem || ingredients.length === 0){
+    if(ingredients.length === 0){
         e.preventDefault();
         return alert("Campo imagem ou ingredientes está vazio!");
     };
@@ -77,13 +80,6 @@ export function PlateEdit() {
     alert("Prato alterado com sucesso!");
     navigate("/");
 
-console.log(title,
-  category,
-  price,
-  description,
-  ingredients)
-
-    
     await api.put(`/plates/${params.id}`, {
       title,
       category,
@@ -91,19 +87,22 @@ console.log(title,
       description,
       ingredients
     });
-    
     await api.put(`/ingredients/${params.id}`, {
         ingredients 
     });
 
     const fileUpload = new FormData();
 
-    console.log(imagem)
-
     fileUpload.append("imgPlate", imagem);
     
     await api.patch(`/plates/${params.id}`, fileUpload);
-};
+  };
+
+  async function handleRemovePlate(){
+    alert("Prato deletado.");
+    navigate("/");
+    await api.delete(`/plates/${params.id}`)
+  };
 
   return (
     <Container>
@@ -171,11 +170,11 @@ console.log(title,
                 onClick={handleAddIngredient}
                 />
 
-                {
+                {ingredients &&
                   ingredients.map((ingredient, index) => (
                     <Ingredient
                     key={String(index)}
-                    value={ingredient.name}
+                    value={ingredient}
                     onClick={()=> handleRemoveIngredient(ingredient)}
                     />
                   ))
@@ -209,6 +208,7 @@ console.log(title,
           </div>
 
           <div className="wrapper-button">
+            <button onClick={handleRemovePlate} type='button'>Excluir prato</button>
             <button type="submit">Salvar alterações</button>
           </div>
         </Form>

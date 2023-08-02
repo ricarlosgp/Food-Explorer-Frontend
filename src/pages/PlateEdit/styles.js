@@ -137,6 +137,9 @@ export const Form = styled.form`
   }
 
   .wrapper-button {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between; 
     button {
       background-color: ${({ theme }) => theme.COLORS.RED_1000};
       color: ${({ theme }) => theme.COLORS.WHITE_100};
