@@ -41,6 +41,21 @@ export const Container = styled.section`
         padding-left: 14px;
       }
     }
+
+    >button {
+      background-color: ${({ theme }) => theme.COLORS.RED_900};
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+      border: 0;
+      padding: 1rem;
+      border-radius: 6px;
+      width: 316px;
+    }
+
+    >a {
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+      text-decoration: none;
+      font-size: 1.8rem;
+    }
   }
 
   @media (min-width: 800px) {

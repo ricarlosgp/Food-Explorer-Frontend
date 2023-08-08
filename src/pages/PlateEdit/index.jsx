@@ -65,7 +65,7 @@ export function PlateEdit() {
   useEffect(()=>{
     async function getIngredients(){
         const response = await api.get(`/ingredients/${params.id}`);
-        console.log(response.data)
+        // console.log(response.data)
         setIngredients(response.data.map(ingredient => ingredient.name))
     }
     getIngredients();

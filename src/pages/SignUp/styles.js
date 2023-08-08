@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.section`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
+  margin-bottom: 10rem;
   height: 100vh;
   color: ${({ theme }) => theme.COLORS.WHITE_100};
 
@@ -40,6 +41,21 @@ export const Container = styled.section`
         border-radius: 5px;
         padding-left: 14px;
       }
+    }
+
+    >button {
+      background-color: ${({ theme }) => theme.COLORS.RED_900};
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+      border: 0;
+      padding: 1rem;
+      border-radius: 6px;
+      width: 316px;
+    }
+
+    >a {
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+      text-decoration: none;
+      font-size: 1.8rem;
     }
   }
 

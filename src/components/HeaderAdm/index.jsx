@@ -47,7 +47,6 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
     fetchPlate();
   },[search, plate]);
 
-
   //==================================
 
   function handleLogout() {

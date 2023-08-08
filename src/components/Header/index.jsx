@@ -10,11 +10,13 @@ import { Container } from './styles'
 
 import { useState, useEffect } from 'react' // inicio desktop
 // hooks react
-export function Header() {
+export function Header({setPlate=()=>{}, plate}) {
   // desktop   w580 h48
   const [widthScreen, setWidthScreen] = useState()
   const navigate = useNavigate();
   const {signOut} = useAuth();
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setWidthScreen(window.innerWidth)
@@ -49,6 +51,18 @@ export function Header() {
     signOut()
   }
 
+  // fetch plate
+
+  useEffect(()=>{
+    async function fetchPlate(){
+        const response = await api.get(`/plates?title=${search}`);
+        setPlate(response.data);
+    }
+    fetchPlate();
+  },[search, plate]);
+
+  console.log('oUTRO DIA NÓS CONTINUA, PAREI NESTA PARTE DE CONFIGURAR O LADO DO USER COMUM, ADM TA OK')
+
   return (
     <Container>
       <div className="wrapper">
@@ -80,6 +94,7 @@ export function Header() {
             <input
               type="text"
               placeholder="Busque por pratos ou ingredientes"
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>

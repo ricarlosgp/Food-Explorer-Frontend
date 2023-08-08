@@ -98,7 +98,7 @@ export function PlateAdd() {
 
             <label>
               Nome
-              <input type="text" placeholder="Ex: salada Ceasar" onChange={(e) => setName(e.target.value)} />
+              <input maxLength={25} type="text" placeholder="Ex: salada Ceasar" onChange={(e) => setName(e.target.value)} />
             </label>
 
             <label>
@@ -144,7 +144,7 @@ export function PlateAdd() {
           <div className="wrapper-3">
             <label>
               Descrição
-              <textarea onChange={(e) => setDescription(e.target.value)} placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"></textarea>
+              <textarea maxLength={200} onChange={(e) => setDescription(e.target.value)} placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"></textarea>
             </label>
           </div>
 

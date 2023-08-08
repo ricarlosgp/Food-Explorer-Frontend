@@ -1,5 +1,4 @@
 import logoHeader from '../../assets/logoHeader.svg'
-import { Button } from '../../components/Button'
 import { useState, useEffect } from 'react'
 import { NavLink } from "react-router-dom";
 import { useAuth} from '../../hooks/auth'
