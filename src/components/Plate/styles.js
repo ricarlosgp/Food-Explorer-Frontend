@@ -1,25 +1,24 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  height: 29.2rem;
+  max-height: 29.2rem;
   width: 21rem;
 
   padding: 2.4rem;
   color: ${({ theme }) => theme.COLORS.WHITE_900};
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
 
+  position: relative;
+
   a, svg {
     text-decoration: none;
     color: ${({ theme }) => theme.COLORS.WHITE_900};
   }
 
-  position: relative;
   .wrapper-heartOrPencil-svg {
     position: absolute;
     top: 1rem;
     right: 1rem;
-
-    font-size: 3.4rem;
 
     button {
       background: none;
@@ -44,13 +43,15 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
+    gap: .5rem;
+    height: 7rem;
 
     > div {
-      margin-top: 1.2rem;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: .5rem;
+
+      text-align: center;
 
       h3 {
         font-size: 1.4rem;
@@ -58,19 +59,17 @@ export const Container = styled.div`
     }
 
     span {
-      margin-bottom: 2rem;
       font-size: 1.6rem;
       color: ${({ theme }) => theme.COLORS.PRICE_$};
     }
   }
 
   .wrapper-control {
-    margin-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 1.4rem;
 
     svg {
       width: 1.8rem;
@@ -133,6 +132,8 @@ export const Container = styled.div`
 
     .wrapper-control {
       flex-direction: row;
+      /* margin-top: 1.5rem; */
     }
   }
 `
+// AMANHÃ NÓS CONTINUA SÓ MANDAR MSG, FAZER A PARTE DESSE PRATO PARA DESKTOP E OUTRO DETALHES VLW.

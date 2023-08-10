@@ -7,6 +7,7 @@ import paperList from '../../assets/paperList.svg'
 import {useAuth} from '../../hooks/auth';
 import {useNavigate} from 'react-router-dom'
 import { Container } from './styles'
+import { api } from '../../services/api'
 
 import { useState, useEffect } from 'react' // inicio desktop
 // hooks react
@@ -61,7 +62,7 @@ export function Header({setPlate=()=>{}, plate}) {
     fetchPlate();
   },[search, plate]);
 
-  console.log('oUTRO DIA NÓS CONTINUA, PAREI NESTA PARTE DE CONFIGURAR O LADO DO USER COMUM, ADM TA OK')
+  console.log(plate)
 
   return (
     <Container>

@@ -29,6 +29,12 @@ export const Container = styled.section`
       border-radius: 50%;
 
       text-align: center;
+      font-weight: bold;
+      font-size: 1.8rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
@@ -161,6 +167,13 @@ export const Container = styled.section`
         gap: 15px;
 
         font-size: 2rem;
+      }
+
+      ul li button {
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color:  ${({ theme }) => theme.COLORS.WHITE_100};
       }
     }
   }

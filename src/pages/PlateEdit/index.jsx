@@ -198,7 +198,7 @@ export function PlateEdit() {
               Descrição
               <textarea 
               placeholder="A Salada César é uma opção refrescante para o verão."
-              maxLength={150}
+              maxLength={200}
               type='text'
               value={description}
               onChange={(e)=>setDescription(e.target.value)}
