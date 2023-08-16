@@ -23,6 +23,11 @@ export const Container = styled.div`
     button {
       background: none;
       border: none;
+
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
     }
   }
 
@@ -35,6 +40,8 @@ export const Container = styled.div`
     img {
       width: 100%;
       height: 100%;
+
+      border-radius: 100%;
     }
   }
 
@@ -106,9 +113,15 @@ export const Container = styled.div`
 
   @media (min-width: 800px) {
     width: 30.4rem;
-    height: 46.2rem;
+    min-height: 46.2rem;
+
+    .wrapper-img {
+      height: 17.6rem;
+      width: 17.6rem;
+    }
 
     .wrapper-description {
+      height: 22rem;
       > div {
         h3 {
           font-size: 2.4rem;
@@ -132,8 +145,17 @@ export const Container = styled.div`
 
     .wrapper-control {
       flex-direction: row;
-      /* margin-top: 1.5rem; */
+
+      svg {
+        width: 2.4;
+        height: 2.4;
+      }
+
+      
+      span {
+        font-size: 2.4rem;
+      }
+
     }
   }
 `
-// AMANHÃ NÓS CONTINUA SÓ MANDAR MSG, FAZER A PARTE DESSE PRATO PARA DESKTOP E OUTRO DETALHES VLW.

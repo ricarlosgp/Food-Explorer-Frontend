@@ -30,11 +30,12 @@ export const SectionSabores = styled.section`
 
   .wrapper-description {
     color: white;
-    width: 50%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    padding-left: 2rem;
 
     > div {
       width: 180px;
@@ -57,7 +58,6 @@ export const SectionSabores = styled.section`
 
   @media (min-width: 650px) {
     height: 200px;
-    margin-top: 200px;
 
     .wrapper-img {
       left: -40px;

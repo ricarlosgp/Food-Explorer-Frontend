@@ -107,7 +107,7 @@ export const Container = styled.section`
 
     border: none;
 
-    min-width: 215px;
+    width: 215px;
     height: 55px;
 
     display: flex;

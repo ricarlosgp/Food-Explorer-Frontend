@@ -3,7 +3,6 @@ import menu from '../../assets/menu.svg'
 import closeMenu from '../../assets/CloseMenu.svg'
 import searchIcon from '../../assets/searchIcon.svg'
 import logOut from '../../assets/logOut.svg'
-// import paperList from '../../assets/paperList.svg'
 import {useAuth} from '../../hooks/auth';
 import {useNavigate} from 'react-router-dom'
 import { api } from '../../services/api'
@@ -37,8 +36,6 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
     }
   }
 
-  //==================================
-  
   useEffect(()=>{
     async function fetchPlate(){
         const response = await api.get(`/plates?title=${search}`);
@@ -46,10 +43,6 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
     }
     fetchPlate();
   },[search, plate]);
-
-  console.log(plate)
-
-  //==================================
 
   function handleLogout() {
     navigate('/')
@@ -104,11 +97,12 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
           </div>
         </div>
 
-        <button className={widthScreen >= 800 ?'wrapper-button' : 'hidden'}>
+        <button onClick={handleAddPlate} className={widthScreen >= 800 ?'wrapper-button' : 'hidden'}>
           <span>novo prato</span>
         </button>
 
         <img
+          onClick={handleLogout}
           className={
             widthScreen >= 800 || menuCheckbox === true ? 'logOut' : 'hidden'
           }

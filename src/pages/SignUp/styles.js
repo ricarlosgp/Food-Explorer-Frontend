@@ -29,6 +29,7 @@ export const Container = styled.section`
       flex-direction: column;
 
       width: 316px;
+      font-size: 1.6rem;
 
       input {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_100};
@@ -40,6 +41,7 @@ export const Container = styled.section`
         margin-top: 8px;
         border-radius: 5px;
         padding-left: 14px;
+        font-size: 1.6rem;
       }
     }
 

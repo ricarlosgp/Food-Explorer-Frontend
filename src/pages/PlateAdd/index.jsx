@@ -77,7 +77,7 @@ export function PlateAdd() {
       <div className="wrapper-form">
         <Form onSubmit={handleAddPlate}>
           <div className="wrapper-head">
-            <div>
+            <div onClick={() => handleBackHome()}>
               <IoIosArrowBack size={18} />
               <span>voltar</span>
             </div>

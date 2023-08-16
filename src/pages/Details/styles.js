@@ -29,12 +29,13 @@ export const Container = styled.section`
 
     .imgWrapper {
       max-width: 250px;
-      max-height: 250px;
+      height: 250px;
 
       img {
         width: 100%;
         height: 100%;
         margin-bottom: 2rem;
+        border-radius: 100%;
       }
     }
 
@@ -51,12 +52,16 @@ export const Container = styled.section`
     gap: 24px;
 
     h1 {
-      font-size: 27px;
+      font-size: 2.7rem;
     }
 
     .text {
       max-height: 100px;
       overflow: auto;
+
+      p {
+        font-size: 1.6rem;
+      }
     }
 
     .wrapper-tags {
@@ -79,6 +84,7 @@ export const Container = styled.section`
           border-radius: 5px;
 
           padding: 8px;
+          font-size: 1.4rem;
         }
       }
     }
@@ -92,7 +98,7 @@ export const Container = styled.section`
 
       svg,
       span {
-        font-size: 32px;
+        font-size: 3.2rem;
       }
 
       .wrapper-button {
@@ -103,8 +109,9 @@ export const Container = styled.section`
           height: 38px;
           border: none;
 
-          padding: 10px;
+          padding: 10px 24px;
           border-radius: 5px;
+          font-size: 1.8rem;
         }
       }
     }
@@ -129,18 +136,20 @@ export const Container = styled.section`
       .wrapper-img {
         display: flex;
         justify-content: center;
+        align-items: end;
 
         margin-top: 0px;
+        padding-right: 5rem;
 
         width: 50%;
         height: 100%;
 
         .back {
-          padding-left: 0;
+          padding-left: 5rem;
         }
 
         img {
-          max-width: 390px;
+          max-width: 39rem;
         }
       }
 
@@ -152,6 +161,19 @@ export const Container = styled.section`
         height: 100%;
 
         text-align: left;
+
+        h1 {
+          font-size: 4rem;
+        }
+
+        .text {
+          max-height: 100px;
+          overflow: auto;
+
+          p {
+            font-size: 2.4rem;
+          }
+        }
 
         .wrapper-tags,
         .wrapper-control {

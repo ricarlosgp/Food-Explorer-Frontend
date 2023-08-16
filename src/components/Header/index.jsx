@@ -106,6 +106,7 @@ export function Header({setPlate=()=>{}, plate}) {
         </button>
 
         <img
+          onClick={handleLogout}
           className={
             widthScreen >= 800 || menuCheckbox === true ? 'logOut' : 'hidden'
           }
