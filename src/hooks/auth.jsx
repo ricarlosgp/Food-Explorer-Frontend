@@ -21,8 +21,6 @@ function AuthProvider({children}) {
 
     }catch(error){
 
-      setLoading(false);
-
       if(error.response){
         alert(error.response.data.message);
       }else{
@@ -36,7 +34,6 @@ function AuthProvider({children}) {
       localStorage.removeItem("@rocketfood:user");
 
       setData({});
-      setLoading(false);
   }
 
     useEffect(()=>{

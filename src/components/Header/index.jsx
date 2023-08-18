@@ -62,8 +62,6 @@ export function Header({setPlate=()=>{}, plate}) {
     fetchPlate();
   },[search, plate]);
 
-  console.log(plate)
-
   return (
     <Container>
       <div className="wrapper">

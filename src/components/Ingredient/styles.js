@@ -11,12 +11,12 @@ export const Container = styled.div`
   color: ${({ theme }) => theme.COLORS.WHITE_900};
 
   background-color: ${({ theme, isnew }) =>
-    isnew ? 'none' : `${theme.COLORS.BACKGROUND_INGREDIENT}`};
+    isnew === 'true' ? 'none' : `${theme.COLORS.BACKGROUND_INGREDIENT}`};
 
   padding-right: 16px;
   border-radius: 8px;
   border: ${({ theme, isnew }) =>
-    isnew ? `1px dashed ${theme.COLORS.WHITE_900}` : 'none'};
+    isnew === 'true' ? `1px dashed ${theme.COLORS.WHITE_900}` : 'none'};
 
   > button {
     border: none;

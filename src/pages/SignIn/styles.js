@@ -51,6 +51,8 @@ export const Container = styled.section`
       padding: 1rem;
       border-radius: 6px;
       width: 316px;
+      height: 48px;
+      font-size: 1.6rem;
     }
 
     >a {

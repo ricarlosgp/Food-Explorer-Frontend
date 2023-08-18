@@ -65,7 +65,6 @@ export function PlateEdit() {
   useEffect(()=>{
     async function getIngredients(){
         const response = await api.get(`/ingredients/${params.id}`);
-        // console.log(response.data)
         setIngredients(response.data.map(ingredient => ingredient.name))
     }
     getIngredients();
@@ -163,9 +162,9 @@ export function PlateEdit() {
 
               <div> 
                 <Ingredient 
-                isnew
+                isnew='true'
                 placeholder="ingrediente"  
-                onChange={e =>setNewIngredients(e.target.value)}
+                onChange={(e) => setNewIngredients(e.target.value)}
                 value={newIngredient}
                 onClick={handleAddIngredient}
                 />
@@ -174,7 +173,7 @@ export function PlateEdit() {
                   ingredients.map((ingredient, index) => (
                     <Ingredient
                     key={String(index)}
-                    value={ingredient}
+                    defaultValue={ingredient}
                     onClick={()=> handleRemoveIngredient(ingredient)}
                     />
                   ))

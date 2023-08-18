@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,7 +136,7 @@ export const SectionSabores = styled.section`
     }
   }
 `
-export const Main = styled.div`
+export const Main = styled.main`
   min-width: 100%;
   margin: 16.5rem 0 5rem;
   padding: 0 2.4rem;

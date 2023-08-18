@@ -3,7 +3,7 @@ import { FiPlus, FiX } from 'react-icons/fi'
 import { Container } from './styles'
 
 export function Ingredient({
-  isnew = false,
+  isnew = 'false',
   value,
   onClick,
   ...rest
@@ -17,7 +17,7 @@ export function Ingredient({
         onClick={onClick}
         className={isnew ? 'button-add' : 'button-delete'}
       >
-        {isnew ? <FiPlus /> : <FiX />}
+        {isnew === 'true' ? <FiPlus /> : <FiX />}
       </button>
     </Container>
   )
