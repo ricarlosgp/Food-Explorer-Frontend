@@ -137,9 +137,10 @@ export const SectionSabores = styled.section`
   }
 `
 export const Main = styled.main`
-  min-width: 100%;
+  width: 100%;
   margin: 16.5rem 0 5rem;
   padding: 0 2.4rem;
+  overflow: hidden;
 
   h2 {
     font-size: 1.8rem;
@@ -158,4 +159,37 @@ export const Main = styled.main`
   @media (min-height: 1280px) {
     padding: 0 5rem;
   }
+`
+export const ContainerSlider = styled.div`
+  position: relative;
+  width: 100%;
+  margin-top: 8rem;
+
+  .arrows {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+
+  }
+
+  .arrow-left, .arrow-right {
+    background: green;
+    display: flex;
+    align-items: center;
+    width: 10rem;
+  }
+
+  .arrow-left {
+    background: linear-gradient(90deg, #000A0F 0%, rgba(0, 10, 15, 0.472541) 100%);
+  }
+
+  .arrow-right {
+    background: linear-gradient(90deg, rgba(0, 10, 15, 0.472541) 0%, #000A0F 100%);
+  }
+
 `
