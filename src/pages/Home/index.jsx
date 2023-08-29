@@ -2,14 +2,14 @@ import imgHome from '../../assets/imgHome.svg'
 import { Header } from '../../components/Header'
 import { HeaderAdm } from '../../components/HeaderAdm'
 import { Footer } from '../../components/Footer'
-import { CarouselControls } from '../../components/CarouselControls'
 import { Plate } from '../../components/Plate'
-import {  useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 
 import { Container, SectionSabores, Main, ContainerSlider } from './styles'
-
-import { useKeenSlider } from "keen-slider/react"
-import {IoMdArrowDropright, IoMdArrowDropleft} from 'react-icons/io'
 
 export function Home() {
   const [plate, setPlate] = useState([])
@@ -65,40 +65,27 @@ export function Home() {
     }
   })
 
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [loaded, setLoaded] = useState(false)
-  const [sliderRef, instanceRef] = useKeenSlider({
-    mode: 'snap',
-    slides: {
-      perView: 2.5,
-      spacing: 10,
-    },
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel)
-    },
-    created() {
-      setLoaded(true)
-    },
-  })
+  const [itemsToShow, setItemsToShow] = useState(1); 
 
-  //console.log(instanceRef.current.track)
-
-  const handleSliderNext = () => {
-    if (instanceRef.current) {
-      instanceRef.current.next()
-      const isLastSlide =
-        currentSlide === instanceRef.current.track.details.slides.length - 2
-      setLoaded(!isLastSlide)
+  useEffect(() => {
+    function updateItemsToShow() {
+      if (window.innerWidth >= 1100) {
+        setItemsToShow(4);
+      } else if((window.innerWidth <= 1100) && (window.innerWidth >= 800)) {
+        setItemsToShow(2);
+      } else if(window.innerWidth <= 800) {
+        setItemsToShow(1.5);
+      }
     }
-  }
 
-  const handleSliderPrev = () => {
-    if (instanceRef.current) {
-      instanceRef.current.prev()
-      setLoaded(currentSlide !== 0)
-    }
-  }
+    window.addEventListener('resize', updateItemsToShow);
 
+    updateItemsToShow();
+
+    return () => {
+      window.removeEventListener('resize', updateItemsToShow);
+    };
+  }, []);
 
   return (
     <Container>
@@ -118,85 +105,30 @@ export function Home() {
           </div>
         </SectionSabores>
 
-        {/* <h2>Refeições</h2>
-        <CarouselControls>
-          {
-            Refeições && Refeições.map((item, index)=>(
-              <div key={String(index)}>
-                <Plate
-                plate={item}
-                />
-              </div> 
-            )) 
-          }
-        </CarouselControls>
+        <ContainerSlider>
+          <div className="carousel-wrapper">
+            <Carousel
+              showArrows={true}
+              infiniteLoop={false}
+              autoPlay={false}
+              showStatus={false}
+              showIndicators={false} 
+              centerMode={true}
+              interval={3000}
+              showThumbs={false}
+              centerSlidePercentage={(100 / itemsToShow)}
+            >
+              {Refeições.map(item => (
+                <div >
 
-        <h2>Sobremesas</h2>
-        <CarouselControls>
-          {
-            Sobremesas && Sobremesas.map((item, index)=>(
-              <div key={String(index)}>
-                <Plate
-                plate={item}
-                />
-              </div> 
-            )) 
-          }
-        </CarouselControls>
-
-        <h2>Bebidas</h2>
-        <CarouselControls>
-          {
-            Bebidas && Bebidas.map((item, index)=>(
-              <div key={String(index)}>
-                <Plate
-                plate={item}
-                />
-              </div> 
-            )) 
-          }
-        </CarouselControls> */}
-<ContainerSlider>
-        <div ref={sliderRef} className="keen-slider">
-          {
-            Sobremesas && Sobremesas.map((item, index)=>(
-              <div className='keen-slider__slide' key={String(index)}>
-                <Plate
-                plate={item}
-                />
-              </div> 
-            )) 
-          }
-        </div>
-        {loaded && instanceRef.current && (
-          <div className='arrows'>
-            <div className='arrow-left'>
-              <Arrow 
-                size={38}
-                left
-                onClick={(e) =>
-                  e.stopPropagation() || handleSliderPrev()
-                }
-                disabled={currentSlide === 0}
-              />
-            </div>
-
-            <div className='arrow-right'>
-              <Arrow
-                size={38}
-                onClick={(e) =>
-                  e.stopPropagation() || handleSliderNext
-                }
-                disabled={
-                  currentSlide ===
-                  instanceRef && instanceRef.current.track.details.slides.length - 1
-                }
-              />
-            </div>
-
+                  <Plate key={item.id} plate={item} />
+                </div>
+              ))}
+            </Carousel>
           </div>
-        )}
-      </ContainerSlider>
+        </ContainerSlider>
+        
+    
       </Main>
 
       <Footer />
@@ -204,19 +136,4 @@ export function Home() {
   )
 }
 
-
-function Arrow(props) {
-  const disabled = props.disabled ? ' arrow--disabled' : ''
-  const arrowDirection = props.left ? 'arrow--left' : 'arrow--right'
-
-  return (
-    <svg
-      onClick={props.onClick}
-      className={`arrow ${arrowDirection} ${disabled}`}
-      viewBox="0 0 24 24"
-    >
-      {props.left && <IoMdArrowDropleft size={12}  />}
-      {!props.left && <IoMdArrowDropright size={12} color="red" />}
-    </svg>
-  )
-}
+// style={{margin: '0 100px'}}

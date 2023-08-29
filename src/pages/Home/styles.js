@@ -165,7 +165,7 @@ export const ContainerSlider = styled.div`
   width: 100%;
   margin-top: 8rem;
 
-  .arrows {
+  /* .arrows {
     display: flex;
     justify-content: space-between;
 
@@ -175,6 +175,14 @@ export const ContainerSlider = styled.div`
     position: absolute;
     top: 0;
 
+  } */
+
+  .slider-wrapper {
+    
+    .control-prev {
+      color: red;
+
+    }
   }
 
   .arrow-left, .arrow-right {
