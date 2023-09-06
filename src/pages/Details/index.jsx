@@ -26,7 +26,7 @@ export function Details() {
         setIngredients(response.data[1])
     }
     fetchPlate();
-  });
+  }, []);
 
   function handleBack() {
     navigate('/')
@@ -37,13 +37,15 @@ export function Details() {
       {user.admin === 1 ? <HeaderAdm /> : <Header />}
 
       <div className="wrapper-1">
+        <div className='back'>
+            <button onClick={handleBack} >
+              <IoIosArrowBack />
+              <span>voltar</span>
+            </button>
+        </div>
         <div className="wrapper-img">
-          <div onClick={handleBack} className="back">
-            <IoIosArrowBack />
-            <span>voltar</span>
-          </div>
           <div className='imgWrapper'>
-            <img src={`${api.defaults.baseURL}/files/${plate.imagem}`} alt='' />
+            {plate.imagem && <img src={`${api.defaults.baseURL}/files/${plate.imagem}`} alt='' />}
           </div>
         </div>
 

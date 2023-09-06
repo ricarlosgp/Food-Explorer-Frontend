@@ -104,10 +104,11 @@ export const Container = styled.section`
   .wrapper-button {
     background: ${({ theme }) => theme.COLORS.RED_900};
     color: ${({ theme }) => theme.COLORS.WHITE_500};
+    font-size: 1.6rem;
 
     border: none;
 
-    width: 215px;
+    min-width: 12rem;
     height: 55px;
 
     display: flex;
@@ -116,6 +117,11 @@ export const Container = styled.section`
     gap: 5px;
 
     border-radius: 5px;
+  }
+
+  .wrapper-button:hover {
+    background: ${({ theme }) => theme.COLORS.RED_1000};
+    transition: background .5s ease;
   }
 
   .sidebar {

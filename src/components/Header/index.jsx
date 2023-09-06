@@ -8,11 +8,9 @@ import {useAuth} from '../../hooks/auth';
 import {useNavigate} from 'react-router-dom'
 import { Container } from './styles'
 import { api } from '../../services/api'
+import { useState, useEffect } from 'react' 
 
-import { useState, useEffect } from 'react' // inicio desktop
-// hooks react
-export function Header({setPlate=()=>{}, plate}) {
-  // desktop   w580 h48
+export function Header({setPlate=()=>{}}) {
   const [widthScreen, setWidthScreen] = useState()
   const navigate = useNavigate();
   const {signOut} = useAuth();
@@ -24,18 +22,8 @@ export function Header({setPlate=()=>{}, plate}) {
 
     window.onresize = () => {
       setWidthScreen(window.innerWidth)
-
-      // if(widthScreen){
-      //   if(widthScreen >= 800){
-      //     setCheckMenuMobile(true)
-      //   }else{
-      //     setCheckMenuMobile(false)
-      //   }
-      // }
     }
   }, [widthScreen])
-
-  // fim desktop
 
   const [menuCheckbox, setMenuCheckbox] = useState(false)
 
@@ -52,7 +40,9 @@ export function Header({setPlate=()=>{}, plate}) {
     signOut()
   }
 
-  // fetch plate
+  function handleBackHome(){
+    return navigate("/");
+  };
 
   useEffect(()=>{
     async function fetchPlate(){
@@ -60,13 +50,12 @@ export function Header({setPlate=()=>{}, plate}) {
         setPlate(response.data);
     }
     fetchPlate();
-  },[search, plate]);
+  },[search]);
 
   return (
     <Container>
       <div className="wrapper">
         <div className={widthScreen >= 800 ? 'hidden' : 'menuCheckbox'}>
-          {/* desktop */}
           <input type="checkbox" onClick={() => handleMenu()} />
 
           {menuCheckbox === false ? (
@@ -79,9 +68,11 @@ export function Header({setPlate=()=>{}, plate}) {
           )}
         </div>
 
-        <img className='logoImg' src={logoHeader} alt="logo food explorer" />
+        <div onClick={handleBackHome}>
+          <img className='logoImg' src={logoHeader} alt="logo food explorer" />
+        </div>
 
-        <div className="wrapper-container">
+        <div className="wrapper-container-input">
           <div
             className={
               widthScreen >= 800 || menuCheckbox === true

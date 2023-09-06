@@ -3,13 +3,10 @@ import { Header } from '../../components/Header'
 import { HeaderAdm } from '../../components/HeaderAdm'
 import { Footer } from '../../components/Footer'
 import { Plate } from '../../components/Plate'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { CarouselControls } from '../../components/CarouselControls'
 
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-
-import { Container, SectionSabores, Main, ContainerSlider } from './styles'
+import { Container, SectionSabores, Main } from './styles'
 
 export function Home() {
   const [plate, setPlate] = useState([])
@@ -65,31 +62,9 @@ export function Home() {
     }
   })
 
-  const [itemsToShow, setItemsToShow] = useState(1); 
-
-  useEffect(() => {
-    function updateItemsToShow() {
-      if (window.innerWidth >= 1100) {
-        setItemsToShow(4);
-      } else if((window.innerWidth <= 1100) && (window.innerWidth >= 800)) {
-        setItemsToShow(2);
-      } else if(window.innerWidth <= 800) {
-        setItemsToShow(1.5);
-      }
-    }
-
-    window.addEventListener('resize', updateItemsToShow);
-
-    updateItemsToShow();
-
-    return () => {
-      window.removeEventListener('resize', updateItemsToShow);
-    };
-  }, []);
-
   return (
     <Container>
-      {user.admin === 1 ? <HeaderAdm plate={plate} setPlate={setPlate} /> : <Header setPlate={setPlate} plate={plate} />}
+      {user.admin === 1 ? <HeaderAdm setPlate={setPlate} /> : <Header setPlate={setPlate} />}
 
       <Main>
         <SectionSabores>
@@ -105,35 +80,42 @@ export function Home() {
           </div>
         </SectionSabores>
 
-        <ContainerSlider>
-          <div className="carousel-wrapper">
-            <Carousel
-              showArrows={true}
-              infiniteLoop={false}
-              autoPlay={false}
-              showStatus={false}
-              showIndicators={false} 
-              centerMode={true}
-              interval={3000}
-              showThumbs={false}
-              centerSlidePercentage={(100 / itemsToShow)}
-            >
-              {Refeições.map(item => (
-                <div >
+      <div>
+        <h2>Pratos Principais</h2>
+        <CarouselControls>
+          {Refeições && Refeições.map(item => {
+            return (
+              <Plate key={item.id} plate={item} />
+            )
+          })}
+        </CarouselControls>
+      </div>
 
-                  <Plate key={item.id} plate={item} />
-                </div>
-              ))}
-            </Carousel>
-          </div>
-        </ContainerSlider>
-        
-    
+      <div>
+        <h2>Sobremesas</h2>
+        <CarouselControls>
+          {Sobremesas && Sobremesas.map(item => {
+            return (
+              <Plate key={item.id} plate={item} />
+            )
+          })}
+        </CarouselControls>
+      </div>
+
+      <div>
+        <h2>Bebidas</h2>
+        <CarouselControls>
+          {Bebidas && Bebidas.map(item => {
+            return (
+              <Plate key={item.id} plate={item} />
+            )
+          })}
+        </CarouselControls>
+      </div>
+
       </Main>
 
       <Footer />
     </Container>
   )
 }
-
-// style={{margin: '0 100px'}}

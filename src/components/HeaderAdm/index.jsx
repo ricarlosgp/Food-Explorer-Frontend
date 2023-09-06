@@ -10,7 +10,7 @@ import { Container } from './styles'
 
 import { useState, useEffect } from 'react'
 
-export function HeaderAdm({setPlate=()=>{}, plate}) {
+export function HeaderAdm({setPlate=()=>{}}) {
   const [search, setSearch] = useState('')
 
   const [widthScreen, setWidthScreen] = useState()
@@ -42,7 +42,7 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
         setPlate(response.data);
     }
     fetchPlate();
-  },[search, plate]);
+  },[search]);
 
   function handleLogout() {
     navigate('/')
@@ -79,7 +79,7 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
           <span>admin</span>
         </div>
 
-            {/* sidebar */}
+            {/* navbar */}
         <div className="wrapper-container">
           <div
             className={

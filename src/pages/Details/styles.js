@@ -9,36 +9,42 @@ export const Container = styled.section`
 
   color: ${({ theme }) => theme.COLORS.WHITE_500};
 
+  .wrapper-1 {
+    padding-top: 12rem;
+  }
+
+  .back {
+    padding-left: 2rem;
+    margin-top: 4rem;
+
+    button {
+      display: flex;
+      align-items: center;
+
+      color: ${({ theme }) => theme.COLORS.WHITE_500};
+
+      font-size: 2.4rem;
+      background: none;
+      border: none;
+    }
+  }
+  
   .wrapper-img {
-    margin-top: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .back {
-      width: 100%;
-      padding-left: 30px;
-      font-size: 24px;
-
-      display: flex;
-      align-items: center;
-      gap: 5px;
-
-      cursor: pointer;
-    }
-
     .imgWrapper {
-      max-width: 250px;
-      height: 250px;
+      max-width: 180px;
+      height: 180px;
 
-      img {
-        width: 100%;
-        height: 100%;
-        margin-bottom: 2rem;
-        border-radius: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          margin-bottom: 2rem;
+          border-radius: 100%;
+        }
       }
-    }
-
   }
 
   .wrapper-description {
@@ -98,10 +104,11 @@ export const Container = styled.section`
 
       svg,
       span {
-        font-size: 3.2rem;
+        font-size: 2.2rem;
       }
 
       .wrapper-button {
+
         button {
           background: ${({ theme }) => theme.COLORS.RED_1000};
           color: ${({ theme }) => theme.COLORS.WHITE_500};
@@ -112,6 +119,13 @@ export const Container = styled.section`
           padding: 10px 24px;
           border-radius: 5px;
           font-size: 1.8rem;
+
+          white-space: nowrap;
+        }
+
+        button:hover {
+          background: ${({ theme }) => theme.COLORS.RED_900};
+          transition: background .5s ease;
         }
       }
     }
@@ -128,10 +142,16 @@ export const Container = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 5px;
 
       height: 100vh;
-      padding: 0 120px;
+      padding: 0 110px;
+
+      .back {
+        position: absolute;
+        top: 14rem;
+        left: 9rem;
+      }
 
       .wrapper-img {
         display: flex;
@@ -139,17 +159,13 @@ export const Container = styled.section`
         align-items: end;
 
         margin-top: 0px;
-        padding-right: 5rem;
 
         width: 50%;
         height: 100%;
 
-        .back {
-          padding-left: 5rem;
-        }
-
-        img {
-          max-width: 39rem;
+        .imgWrapper {
+          max-width: 400px;
+          height: 400px;
         }
       }
 

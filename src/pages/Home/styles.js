@@ -4,6 +4,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h2 {
+    color: ${({ theme }) => theme.COLORS.WHITE_500};
+    font-size: 1.8rem;
+  }
 `
 export const SectionSabores = styled.section`
   background: ${({ theme }) => theme.COLORS.BACKGROUND_100};
@@ -15,6 +20,7 @@ export const SectionSabores = styled.section`
   height: 120px;
 
   position: relative;
+  margin-top: 4rem;
 
   .wrapper-img {
     position: absolute;
@@ -36,12 +42,13 @@ export const SectionSabores = styled.section`
     justify-content: center;
 
     padding-left: 2rem;
+    z-index: 1;
 
     > div {
-      width: 180px;
+      width: 210px;
 
       h1 {
-        font-size: 16px;
+        font-size: 1.8rem;
         line-height: 25px;
         font-weight: 600;
 
@@ -49,8 +56,8 @@ export const SectionSabores = styled.section`
       }
 
       p {
-        font-size: 11px;
-        line-height: 17px;
+        font-size: 1.2rem;
+        line-height: 140%;
         color: ${({ theme }) => theme.COLORS.WHITE_100};
       }
     }
@@ -67,19 +74,14 @@ export const SectionSabores = styled.section`
     }
 
     .wrapper-description {
-      z-index: 1;
       margin-right: 20px;
 
       > div {
         width: 350px;
 
         h1 {
-          font-size: 35px;
+          font-size: 3rem;
           margin-bottom: 18px;
-        }
-
-        p {
-          font-size: 16px;
         }
       }
     }
@@ -98,7 +100,7 @@ export const SectionSabores = styled.section`
 
     .wrapper-description {
       z-index: 1;
-      margin-right: 20px;
+      margin-right: -8rem;
 
       > div {
         width: 60rem;
@@ -108,13 +110,13 @@ export const SectionSabores = styled.section`
         justify-content: center;
 
         h1 {
-          font-size: 5rem;
+          font-size: 4rem;
           margin-bottom: 18px;
         }
 
         p {
           margin-top: 1rem;
-          font-size: 2.5rem;
+          font-size: 1.6rem;
         }
       }
     }
@@ -159,45 +161,4 @@ export const Main = styled.main`
   @media (min-height: 1280px) {
     padding: 0 5rem;
   }
-`
-export const ContainerSlider = styled.div`
-  position: relative;
-  width: 100%;
-  margin-top: 8rem;
-
-  /* .arrows {
-    display: flex;
-    justify-content: space-between;
-
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    top: 0;
-
-  } */
-
-  .slider-wrapper {
-    
-    .control-prev {
-      color: red;
-
-    }
-  }
-
-  .arrow-left, .arrow-right {
-    background: green;
-    display: flex;
-    align-items: center;
-    width: 10rem;
-  }
-
-  .arrow-left {
-    background: linear-gradient(90deg, #000A0F 0%, rgba(0, 10, 15, 0.472541) 100%);
-  }
-
-  .arrow-right {
-    background: linear-gradient(90deg, rgba(0, 10, 15, 0.472541) 0%, #000A0F 100%);
-  }
-
 `

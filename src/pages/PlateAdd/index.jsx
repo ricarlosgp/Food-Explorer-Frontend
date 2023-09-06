@@ -64,7 +64,7 @@ export function PlateAdd() {
     }          
 };
 
-  function handleBackHome(){
+  function handleBack(){
     return navigate("/");
   };
 
@@ -77,10 +77,10 @@ export function PlateAdd() {
       <div className="wrapper-form">
         <Form onSubmit={handleAddPlate}>
           <div className="wrapper-head">
-            <div onClick={() => handleBackHome()}>
+            <button onClick={() => handleBack()}>
               <IoIosArrowBack size={18} />
               <span>voltar</span>
-            </div>
+            </button>
             <h1>Novo prato</h1>
           </div>
 
@@ -98,7 +98,7 @@ export function PlateAdd() {
 
             <label>
               Nome
-              <input maxLength={25} type="text" placeholder="Ex: salada Ceasar" onChange={(e) => setName(e.target.value)} />
+              <input maxLength={20} type="text" placeholder="Ex: salada Ceasar" onChange={(e) => setName(e.target.value)} />
             </label>
 
             <label>
@@ -116,7 +116,7 @@ export function PlateAdd() {
             <div className="ingredients">
               <div>
               <Ingredient 
-              isnew 
+              isnew='true'
               placeholder="ingrediente" 
               onChange={e =>setNewIngredients(e.target.value)}
               value={newIngredient}

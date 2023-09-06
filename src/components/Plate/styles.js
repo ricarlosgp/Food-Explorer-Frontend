@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   max-height: 29.2rem;
   width: 21rem;
+  height: 350px;
 
   padding: 2.4rem;
   color: ${({ theme }) => theme.COLORS.WHITE_900};
@@ -94,20 +95,23 @@ export const Container = styled.div`
       align-items: center;
     }
 
-    .wrapper-button {
+    button {
+      background: ${({ theme }) => theme.COLORS.RED_1000};
+      color: ${({ theme }) => theme.COLORS.WHITE_500};
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 500;
+
+      border: none;
       width: 100%;
 
-      button {
-        background: ${({ theme }) => theme.COLORS.RED_1000};
-        color: ${({ theme }) => theme.COLORS.WHITE_500};
+      padding: 10px;
+      border-radius: 5px;
+    }
 
-        border: none;
-
-        width: 100%;
-
-        padding: 10px;
-        border-radius: 5px;
-      }
+    button:hover {
+      background: ${({ theme }) => theme.COLORS.RED_900};
+      transition: background .5s ease;
     }
   }
 
@@ -122,6 +126,8 @@ export const Container = styled.div`
 
     .wrapper-description {
       height: 22rem;
+      justify-content: space-around;
+
       > div {
         h3 {
           font-size: 2.4rem;
@@ -131,10 +137,21 @@ export const Container = styled.div`
         }
       }
 
-      p {
-        font-size: 1.4rem;
-        color: ${({ theme }) => theme.COLORS.WHITE_100};
-        text-align: center;
+      .text {
+        max-height: 8rem;
+        overflow: hidden;
+        
+        p {
+          font-size: 1.4rem;
+          color: ${({ theme }) => theme.COLORS.WHITE_100};
+          text-align: center;
+
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden; 
+          text-overflow: ellipsis;
+        }
       }
 
       span {
@@ -150,10 +167,13 @@ export const Container = styled.div`
         width: 2.4;
         height: 2.4;
       }
-
       
       span {
         font-size: 2.4rem;
+      }
+
+      button {
+        width: 9.2rem;
       }
 
     }

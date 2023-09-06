@@ -7,9 +7,11 @@ import {useNavigate} from 'react-router-dom'
 import {Link} from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import { Container } from './styles'
+import {BounceLoader} from 'react-spinners';
 
 export function Plate({plate}) {
   const [widthScreen, setWidthScreen] = useState()
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
@@ -26,46 +28,64 @@ export function Plate({plate}) {
     navigate(`/PlateEdit/${plate.id}`)
   }
 
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(()=>{
+        setLoading(false)
+    },1000);
+  },[])
+
   return (
     <Container>
-      <div className="wrapper-heartOrPencil-svg">
-        {user.admin === 1 ? 
-        <button onClick={handleEdit}><BsFillPencilFill /></button>
-        :
-        <button><AiOutlineHeart /></button>
-        }
-      </div>
-
-      <Link to={`/Details/${plate.id}`}>
-        <div className="wrapper-img">
-          <img src={`${api.defaults.baseURL}/files/${plate.imagem}`} alt='' />
+      {loading ?
+      <BounceLoader
+      style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}
+      size={50}
+      color={'#ffffff'}
+      loading={loading}
+      />
+      :
+      <>
+        <div className="wrapper-heartOrPencil-svg">
+          {user.admin === 1 ? 
+          <button onClick={handleEdit}><BsFillPencilFill /></button>
+          :
+          <button><AiOutlineHeart /></button>
+          }
         </div>
 
-        <div className="wrapper-description">
-          <div>
-            <h3>{plate.title}</h3>
-            <IoIosArrowForward />
+        <Link to={`/Details/${plate.id}`}>
+          <div className="wrapper-img">
+            <img src={`${api.defaults.baseURL}/files/${plate.imagem}`} alt='' />
           </div>
-          <p className={widthScreen >= 800 ? '' : 'hidden'}>
-            {plate.description}
-          </p>
 
-          <span>R$ {plate.price}</span>
-        </div>
-      </Link>
+          <div className="wrapper-description">
+            <div>
+              <h3>{plate.title}</h3>
+              <IoIosArrowForward />
+            </div>
 
+            <div className='text'>
+              <p className={widthScreen >= 800 ? '' : 'hidden'}>
+                {plate.description}
+              </p>
+            </div>
 
-      <div className="wrapper-control">
-        <div className="wrapper-buttons">
-          <CgBorderStyleSolid />
-          <span>01</span>
-          <AiOutlinePlus />
-        </div>
+            <span>R$ {plate.price}</span>
+          </div>
+        </Link>
 
-        <div className="wrapper-button">
+        <div className="wrapper-control">
+          <div className="wrapper-buttons">
+            <CgBorderStyleSolid />
+            <span>01</span>
+            <AiOutlinePlus />
+          </div>
+
           <button>incluir</button>
         </div>
-      </div>
+      </>}
+
     </Container>
   )
 }

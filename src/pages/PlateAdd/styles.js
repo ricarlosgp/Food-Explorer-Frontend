@@ -54,13 +54,17 @@ export const Form = styled.form`
   }
 
   .wrapper-head {
-    > div {
+    button {
       margin-bottom: 3.4rem;
       display: flex;
       align-items: center;
 
+      background: none;
+      border: none;
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
+
       span {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
       }
     }
   }
@@ -145,11 +149,18 @@ export const Form = styled.form`
       width: 100%;
 
       padding: 1.2rem;
+      border-radius: 5px;
+      font-size: 1.6rem;
+    }
+
+    button:hover {
+      background: ${({ theme }) => theme.COLORS.RED_900};
+      transition: background .5s ease;
     }
   }
 
   @media (min-width: 800px) {
-    padding: 15rem 12rem;
+    padding: 0rem 12rem;
 
     .wrapper-1 {
       display: flex;
@@ -181,6 +192,7 @@ export const Form = styled.form`
       .ingredients {
         margin-top: -3rem;
         width: 100%;
+        overflow: hidden;
 
         > div {
           padding: 0.8rem;

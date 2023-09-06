@@ -55,6 +55,10 @@ export const Container = styled.section`
       height: 48px;
       font-size: 1.6rem;
     }
+    >button:hover {
+      background: ${({ theme }) => theme.COLORS.RED_1000};
+      transition: background .5s ease;
+    }
 
     >a {
       color: ${({ theme }) => theme.COLORS.WHITE_100};

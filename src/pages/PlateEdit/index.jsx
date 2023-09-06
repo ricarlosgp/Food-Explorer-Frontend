@@ -103,6 +103,10 @@ export function PlateEdit() {
     await api.delete(`/plates/${params.id}`)
   };
 
+  function handleBack() {
+    navigate("/");
+  }
+
   return (
     <Container>
       <div className="wrapper-header">
@@ -112,10 +116,10 @@ export function PlateEdit() {
       <div className="wrapper-form">
         <Form onSubmit={updatePlate}>
           <div className="wrapper-head">
-            <div>
+            <button onClick={() => handleBack()}>
               <IoIosArrowBack size={18} />
               <span>voltar</span>
-            </div>
+            </button>
             <h1>Editar prato</h1>
           </div>
 
@@ -140,7 +144,7 @@ export function PlateEdit() {
               type="text" 
               placeholder="Ex: salada Ceasar" 
               value={title}
-              maxLength={25}
+              maxLength={20}
               onChange={(e)=>setTitle(e.target.value)}
               />
             </label>

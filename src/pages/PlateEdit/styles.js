@@ -50,14 +50,21 @@ export const Form = styled.form`
       border-radius: 0.8rem;
 
       padding: 1.4rem 1.6rem;
+      font-size: 1.6rem;
     }
   }
 
   .wrapper-head {
-    > div {
+    margin-top: 1rem;
+
+    button {
       margin-bottom: 3.4rem;
       display: flex;
       align-items: center;
+
+      background: none;
+      border: none;
+      color: ${({ theme }) => theme.COLORS.WHITE_100};
 
       span {
         font-size: 1.6rem;
@@ -79,19 +86,20 @@ export const Form = styled.form`
       border-radius: 1rem;
 
       label {
-        justify-content: start;
+        display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 5px;
-        display: flex;
+        justify-content: center;
 
         height: 45px;
+        white-space: nowrap;
 
-        padding: 0 3.2rem;
         border-radius: 8px;
+        font-size: 1.4rem;
 
         svg {
-          font-size: 2.4rem;
+          width: 24px;
+          height: 24px;
         }
 
         input[type='file'] {
@@ -103,6 +111,9 @@ export const Form = styled.form`
 
   .wrapper-2 {
     .ingredients {
+      width: 100%;
+      overflow: hidden;
+
       > div {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_500};
 
@@ -130,6 +141,7 @@ export const Form = styled.form`
 
       resize: none;
       height: 17.2rem;
+      font-size: 1.6rem;
 
       border: none;
       border-radius: 0.8rem;
@@ -140,26 +152,46 @@ export const Form = styled.form`
     display: flex;
     gap: 2rem;
     justify-content: space-between; 
+
     button {
       background-color: ${({ theme }) => theme.COLORS.RED_1000};
       color: ${({ theme }) => theme.COLORS.WHITE_100};
 
       border: none;
       width: 100%;
+      border-radius: 5px;
 
       padding: 1.2rem;
+    }
+
+    button:hover {
+      background: ${({ theme }) => theme.COLORS.RED_900};
+      transition: background .5s ease;
     }
   }
 
   @media (min-width: 800px) {
-    padding: 15rem 12rem;
+    padding: 0rem 12rem;
+
+    .wrapper-head {
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      button {
+        
+        span {
+          font-size: 2.4rem;
+        }
+      }
+    }
 
     .wrapper-1 {
       display: flex;
       gap: 3.2rem;
 
       .wrapper-file {
-        width: 22.9rem;
+        width: 30rem;
       }
 
       label:nth-child(3) {

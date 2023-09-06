@@ -11,27 +11,20 @@ export default createGlobalStyle`
         font-size: 62.5%;
     }
 
-    body {
+    body, input, textarea {
         background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
         color: ${({ theme }) => theme.COLORS.WHITE_100};
         -webkit-font-smoothing: antialiased;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
     }
 
-    .hidden {//desktop
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+    }
+
+    .hidden {
         display: none;
-    }
-
-    ::-webkit-scrollbar {
-        width: 10px;
-        height: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background:white;
-    }
-
-    ::-webkit-scrollbar-thumb { 
-        border-radius: 10px;
-        background: gray;
     }
 `

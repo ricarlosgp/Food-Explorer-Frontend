@@ -1,69 +1,42 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
-    padding: ${window.innerWidth < 832 ? '0': '0 120px'};
-    padding: 0;
-    
-    #hidden{
-        display: none;
-    }
-
-    .wrapper_plates{
+export const ContainerSlider  = styled.section`
+  width: 100%;
+  
+  .carousel-wrapper {
         position: relative;
- 
-        .wrapper_button{
-            button{
+
+        .bg-back, .bg-forward {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            top: 0;
+
+            width: 80px;
+            height: 100%;
+
+            button {
                 background: none;
                 border: none;
 
-                width: 40px;
-                height: 40px;
-
-                svg{
-                    font-size: 32px;
+                svg {
+                    width: 50px;
+                    height: 50px;
                     color: ${({theme})=>theme.COLORS.WHITE_900};
                 }
             }
         }
-        .wrapper_button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            position: absolute;
-            top: 0px;
-            z-index: 1;
-
-            height: 100%;
-            width: 200px;
-        }
-        .back{
+        .bg-back {
             background: linear-gradient(90deg, #000A0F 0%, rgba(0, 10, 15, 0.472541) 100%);
+            left: 0;
         }
-        .forward{
+
+        .bg-forward {
             background: linear-gradient(90deg, rgba(0, 10, 15, 0.472541) 0%, #000A0F 100%);
             right: 0;
         }
     }
-    .rec.rec-arrow{
-        display: none;
-    }
-
-    @media (max-width: 832px){
-        margin-left: -2rem;
-        
-        #addMargin{
-            margin-left: 0;
-        }
-    }
-
-    @media (max-width: 1300px){
-        .back, .forward{
-            width: 50px !important;
-        }
-    }
-
-    @media (min-height: 1250px) {
-        margin-left: 0;
-    }
-`;
+`

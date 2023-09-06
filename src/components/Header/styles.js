@@ -80,8 +80,8 @@ export const Container = styled.section`
       }
     }
 
-    .wrapper-container {
-      width: 90%;
+    .wrapper-container-input {
+      width: 85%;
       height: 50px;
 
       position: absolute;
@@ -117,10 +117,11 @@ export const Container = styled.section`
   .wrapper-button {
     background: ${({ theme }) => theme.COLORS.RED_900};
     color: ${({ theme }) => theme.COLORS.WHITE_500};
+    font-size: 1.6rem;
 
     border: none;
 
-    min-width: 215px;
+    min-width: 16rem;
     height: 55px;
 
     display: flex;
@@ -129,6 +130,11 @@ export const Container = styled.section`
     gap: 5px;
 
     border-radius: 5px;
+  }
+
+  .wrapper-button:hover {
+    background: ${({ theme }) => theme.COLORS.RED_1000};
+    transition: background .5s ease;
   }
 
   .sidebar {
@@ -185,7 +191,7 @@ export const Container = styled.section`
     .wrapper {
       width: 100%;
 
-      .wrapper-container {
+      .wrapper-container-input {
         position: static;
 
         .wrapper-input {
