@@ -59,7 +59,7 @@ export function PlateAdd() {
         }));
     
         alert("Prato adicionado com sucesso.");
-        handleBackHome();
+        handleBack()
         await api.post("/plates", fileUpload);
     }          
 };

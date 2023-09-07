@@ -237,4 +237,8 @@ export const Form = styled.form`
       }
     }
   }
+
+  @media (max-height: 800px) {
+    padding: 15rem 3.2rem;
+  }
 `

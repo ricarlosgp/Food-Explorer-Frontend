@@ -2,11 +2,11 @@
 
 * [Projeto FoodExplorer](https://myfrontendfood.netlify.app)
 
-![preview](./src/assets/preview.png)
+![preview](./src/assets/previews//previewDesktop.jpeg)
 
 > Também responsivo
 
-![preview](./src/assets/previewMobile.png)
+![preview](./src/assets/previews/previewMobile.jpeg)
 
 
 <h2>Description</h2>
