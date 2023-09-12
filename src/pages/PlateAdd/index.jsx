@@ -40,28 +40,31 @@ export function PlateAdd() {
   };
 
   async function handleAddPlate(e){
-
-    if(!imagem || !name || !category || ingredients.length === 0 || !description){
-        e.preventDefault();
-        alert("Existe campo vazio.")
-    }else{
-
-        const fileUpload = new FormData();
-    
-        fileUpload.append("imgPlate", imagem);
-
-        fileUpload.append("data",JSON.stringify({
-            title: name,
-            category,
-            description,
-            ingredients,
-            price,
-        }));
-    
-        alert("Prato adicionado com sucesso.");
-        handleBack()
-        await api.post("/plates", fileUpload);
-    }          
+    try{
+      if(!imagem || !name || !category || ingredients.length === 0 || !description){
+          e.preventDefault();
+          alert("Existe campo vazio.")
+      }else{
+  
+          const fileUpload = new FormData();
+      
+          fileUpload.append("imgPlate", imagem);
+  
+          fileUpload.append("data",JSON.stringify({
+              title: name,
+              category,
+              description,
+              ingredients,
+              price,
+          }));
+      
+          alert("Prato adicionado com sucesso.");
+          handleBack()
+          await api.post("/plates", fileUpload);
+      }          
+    }catch(error){
+      alert(error)
+    }
 };
 
   function handleBack(){
