@@ -45,6 +45,10 @@ export const Container = styled.section`
       }
     }
 
+    .isLoading {
+      cursor: not-allowed;
+    }
+    
     >button {
       background-color: ${({ theme }) => theme.COLORS.RED_900};
       color: ${({ theme }) => theme.COLORS.WHITE_100};

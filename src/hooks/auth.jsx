@@ -6,9 +6,10 @@ export const AuthContext = createContext({});
 
 function AuthProvider({children}) {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false)
   
   async function signIn({email, password}){
-
+    setLoading(true)
     try{
       const response = await api.post("/authentication", {email, password});
       const {user, token} = response.data;
@@ -20,10 +21,11 @@ function AuthProvider({children}) {
       setData({user, token});
 
     }catch(error){
-
       if(error.response){
-        alert(error.response.data.message);
+        setLoading(false)
+        alert("E-mail e/ou senha incorreta", 401);
       }else{
+        setLoading(false)
         alert("Não foi possível entrar.");
       }
     }
@@ -55,6 +57,7 @@ function AuthProvider({children}) {
       <AuthContext.Provider value={{
         signIn,
         signOut,
+        loading,
         user: data.user,
       }}>
 

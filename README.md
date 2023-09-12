@@ -1,6 +1,6 @@
 <h1>Food Explorer</h1>
 
-* [Projeto FoodExplorer](https://myfrontendfood.netlify.app)
+* [Projeto FoodExplorer](https://food-explorer-rocket.netlify.app/)
 
 ![preview](./src/assets/previews//previewDesktop.jpeg)
 

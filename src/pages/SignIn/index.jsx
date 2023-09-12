@@ -9,7 +9,7 @@ export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { signIn } = useAuth()
+  const { signIn, loading } = useAuth()
 
   function handleLogin() {
     signIn({email, password})
@@ -52,7 +52,7 @@ export function SignIn() {
           />
         </label>
 
-        <button onClick={handleLogin}>Entrar</button>
+        <button className={`${loading ? 'isLoading' : ''}`} onClick={handleLogin}>{loading ? 'Loading...' : 'Entrar'}</button>
 
         <NavLink to="/SignUp">Criar uma conta</NavLink>
       </div>
