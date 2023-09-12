@@ -40,7 +40,6 @@ export function PlateAdd() {
   };
 
   async function handleAddPlate(e){
-    try{
       if(!imagem || !name || !category || ingredients.length === 0 || !description){
           e.preventDefault();
           alert("Existe campo vazio.")
@@ -62,9 +61,7 @@ export function PlateAdd() {
           handleBack()
           await api.post("/plates", fileUpload);
       }          
-    }catch(error){
-      alert(error)
-    }
+    
 };
 
   function handleBack(){
