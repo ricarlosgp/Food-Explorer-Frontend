@@ -116,7 +116,7 @@ export function HeaderAdm({setPlate=()=>{}}) {
           widthScreen >= 800 || menuCheckbox === false ? 'hidden' : 'sidebar'
         }
       >
-        <div className="bgFix"></div>
+        <div className="bgFix" />
 
         <nav>
           <ul>

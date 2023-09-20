@@ -34,7 +34,7 @@ function AuthProvider({children}) {
   function signOut() {
       localStorage.removeItem("@rocketfood:token");
       localStorage.removeItem("@rocketfood:user");
-
+      setLoading(false)
       setData({});
   }
 

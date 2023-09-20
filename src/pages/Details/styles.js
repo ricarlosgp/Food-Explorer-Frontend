@@ -23,9 +23,10 @@ export const Container = styled.section`
 
       color: ${({ theme }) => theme.COLORS.WHITE_500};
 
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       background: none;
       border: none;
+      cursor: pointer;
     }
   }
   
@@ -121,6 +122,7 @@ export const Container = styled.section`
           font-size: 1.8rem;
 
           white-space: nowrap;
+          cursor: pointer;
         }
 
         button:hover {
@@ -151,6 +153,10 @@ export const Container = styled.section`
         position: absolute;
         top: 14rem;
         left: 9rem;
+
+        button {
+          font-size: 2.4rem;
+        }
       }
 
       .wrapper-img {

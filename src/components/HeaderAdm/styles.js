@@ -117,6 +117,7 @@ export const Container = styled.section`
     gap: 5px;
 
     border-radius: 5px;
+    cursor: pointer;
   }
 
   .wrapper-button:hover {
@@ -166,6 +167,7 @@ export const Container = styled.section`
         background: none;
         border: none;
         color:  ${({ theme }) => theme.COLORS.WHITE_100};
+        cursor: pointer;
       }
     }
   }

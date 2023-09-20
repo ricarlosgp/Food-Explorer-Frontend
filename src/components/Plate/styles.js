@@ -104,6 +104,7 @@ export const Container = styled.div`
 
       border: none;
       width: 100%;
+      cursor: pointer;
 
       padding: 10px;
       border-radius: 5px;
